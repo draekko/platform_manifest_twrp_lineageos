@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest>
 
-  <!--
   <remote  name="github"
            fetch=".."
-           review="review.lineageos.org" /> -->
+           review="review.lineageos.org" />
 
-  <remote  name="github"
+  <remote  name="twrp-github"
            fetch="https://github.com/" />
 
   <remote  name="private"
@@ -24,7 +23,7 @@
 
   <!-- AOSP Projects -->
 
-  <project path="build" name="LineageOS/android_build" groups="pdk,tradefed">
+  <project path="build/make" name="LineageOS/android_build" groups="pdk">
     <copyfile src="core/root.mk" dest="Makefile" />
     <linkfile src="CleanSpec.mk" dest="build/CleanSpec.mk" />
     <linkfile src="buildspec.mk.default" dest="build/buildspec.mk.default" />
@@ -34,7 +33,7 @@
     <linkfile src="tools" dest="build/tools" />
   </project>
   <project path="build/blueprint" name="platform/build/blueprint" groups="pdk,tradefed" remote="aosp" />
-  <project path="build/kati" name="LineageOS/android_build_kati" groups="pdk,tradefed" revision="lineage-16.0" />
+  <project path="build/kati" name="platform/build/kati" groups="pdk,tradefed" remote="aosp" />
   <project path="build/soong" name="platform/build/soong" groups="pdk,tradefed" remote="aosp" >
     <linkfile src="root.bp" dest="Android.bp" />
     <linkfile src="bootstrap.bash" dest="bootstrap.bash" />
@@ -42,7 +41,7 @@
   <!-- project path="abi/cpp" name="platform/abi/cpp" groups="pdk" remote="aosp" /> -->
   <!-- project path="art" name="LineageOS/android_art" groups="pdk" /> -->
   <project path="bionic" name="LineageOS/android_bionic" groups="pdk" />
-  <project path="bootable/recovery" name="omnirom/android_bootable_recovery" remote="github" revision="android-9.0" groups="pdk-cw-fs"/>
+  <project path="bootable/recovery" name="omnirom/android_bootable_recovery" remote="twrp-github" revision="android-9.0" groups="pdk"/>
   <!-- project path="cts" name="platform/cts" groups="cts,pdk-cw-fs,pdk-fs" remote="aosp" /> -->
   <!-- project path="dalvik" name="LineageOS/android_dalvik" groups="pdk-cw-fs,pdk-fs" /> -->
   <!-- project path="developers/build" name="platform/developers/build" remote="aosp" /> -->
@@ -101,7 +100,7 @@
   <!-- project path="external/deqp" name="platform/external/deqp" groups="pdk-fs" remote="aosp" /> -->
   <!-- project path="external/dexmaker" name="platform/external/dexmaker" groups="pdk-cw-fs,pdk-fs" remote="aosp" /> -->
   <!-- project path="external/dhcpcd-6.8.2" name="platform/external/dhcpcd-6.8.2" remote="aosp" /> -->
-  <project path="external/dlmalloc" name="platform/external/dlmalloc" remote="aosp" />
+  <project path="external/dlmalloc" name="platform/external/dlmalloc" remote="aosp" groups="pdk" />
   <!-- project path="external/dng_sdk" name="platform/external/dng_sdk" remote="aosp" /> -->
   <!-- project path="external/dnsmasq" name="platform/external/dnsmasq" groups="pdk" remote="aosp" /> -->
   <!-- project path="external/doclava" name="platform/external/doclava" groups="pdk-cw-fs,pdk-fs" remote="aosp" /> -->
@@ -121,7 +120,7 @@
   <!-- project path="external/eyes-free" name="platform/external/eyes-free" groups="pdk-cw-fs,pdk-fs" remote="aosp" /> -->
   <project path="external/f2fs-tools" name="platform/external/f2fs-tools" groups="pdk" remote="aosp" />
   <!-- project path="external/fdlibm" name="platform/external/fdlibm" groups="pdk" remote="aosp" /> -->
-  <project path="external/fec" name="platform/external/fec" remote="aosp" />
+  <project path="external/fec" name="platform/external/fec" remote="aosp" groups="pdk" />
   <!-- project path="external/fio" name="platform/external/fio" groups="pdk-fs" remote="aosp" /> -->
   <!-- project path="external/flac" name="LineageOS/android_external_flac" groups="pdk" /> -->
   <!-- project path="external/fonttools" name="platform/external/fonttools" groups="pdk-fs" remote="aosp" /> -->
@@ -203,7 +202,7 @@ selinu  <!-- project path="external/libmtp" name="platform/external/libmtp" grou
   <!-- project path="external/libphonenumber" name="platform/external/libphonenumber" groups="pdk-cw-fs,pdk-fs" remote="aosp" /> -->
   <project path="external/libpng" name="platform/external/libpng" groups="pdk" remote="aosp" />
   <project path="external/libunwind" name="platform/external/libunwind" groups="pdk" remote="aosp" />
-  <project path="external/libunwind_llvm" name="platform/external/libunwind_llvm" remote="aosp" />
+  <project path="external/libunwind_llvm" name="platform/external/libunwind_llvm" remote="aosp" groups="pdk" />
   <!-- project path="external/libusb" name="platform/external/libusb" groups="pdk-cw-fs,pdk-fs" remote="aosp" /> -->
   <!-- project path="external/libusb-compat" name="platform/external/libusb-compat" groups="pdk-cw-fs,pdk-fs" remote="aosp" /> -->
   <!-- project path="external/libutf" name="platform/external/libutf" groups="pdk-cw-fs,pdk-fs" remote="aosp" /> -->
@@ -212,7 +211,7 @@ selinu  <!-- project path="external/libmtp" name="platform/external/libmtp" grou
   <!-- project path="external/libvpx" name="platform/external/libvpx" groups="pdk" remote="aosp" /> -->
   <!-- project path="external/libvterm" name="platform/external/libvterm" groups="pdk-cw-fs,pdk-fs" remote="aosp" /> -->
   <!-- project path="external/libweave" name="platform/external/libweave" remote="aosp" /> -->
-  <project path="external/libxml2" name="platform/external/libxml2" groups="pdk-cw-fs,pdk-fs,libxml2" remote="aosp" />
+  <project path="external/libxml2" name="platform/external/libxml2" groups="pdk,libxml2" remote="aosp" />
   <!-- project path="external/libyuv" name="platform/external/libyuv" groups="libyuv,pdk-cw-fs,pdk-fs" remote="aosp" /> -->
   <!-- project path="external/littlemock" name="platform/external/littlemock" groups="pdk-cw-fs,pdk-fs" remote="aosp" /> -->
   <!-- project path="external/lld" name="platform/external/lld" groups="pdk-fs" remote="aosp" /> -->
@@ -223,7 +222,7 @@ selinu  <!-- project path="external/libmtp" name="platform/external/libmtp" grou
   <!-- project path="external/mdnsresponder" name="platform/external/mdnsresponder" groups="pdk" remote="aosp" /> -->
   <!-- project path="external/mesa3d" name="platform/external/mesa3d" groups="pdk-cw-fs,pdk-fs" remote="aosp" /> -->
   <!-- project path="external/messageformat" name="platform/external/messageformat" groups="pdk-cw-fs,pdk-fs" remote="aosp" /> -->
-  <project path="external/minijail" name="platform/external/minijail" remote="aosp" />
+  <project path="external/minijail" name="platform/external/minijail" remote="aosp" groups="pdk" />
   <project path="external/mksh" name="LineageOS/android_external_mksh" groups="pdk" />
   <!-- project path="external/mmc-utils" name="platform/external/mmc-utils" groups="pdk-cw-fs,pdk-fs" remote="aosp" /> -->
   <!-- project path="external/mockftpserver" name="platform/external/mockftpserver" groups="pdk-fs" remote="aosp" /> -->
@@ -467,7 +466,6 @@ selinu  <!-- project path="external/libmtp" name="platform/external/libmtp" grou
   <project path="prebuilts/misc" name="platform/prebuilts/misc" groups="pdk" clone-depth="1" remote="aosp" />
   <project path="prebuilts/ndk" name="platform/prebuilts/ndk" groups="pdk" clone-depth="1" remote="aosp" revision="master" />
   <!-- project path="prebuilts/ninja/darwin-x86" name="platform/prebuilts/ninja/darwin-x86" groups="darwin,pdk,tradefed" clone-depth="1" remote="aosp" /> -->
-  <project path="prebuilts/ninja/linux-x86" name="platform/prebuilts/ninja/linux-x86" groups="linux,pdk,tradefed" clone-depth="1" remote="aosp" revision="master" />
   <!-- project path="prebuilts/python/darwin-x86/2.7.5" name="platform/prebuilts/python/darwin-x86/2.7.5" groups="darwin,pdk,pdk-cw-fs,pdk-fs" clone-depth="1" remote="aosp" /> -->
   <!-- project path="prebuilts/python/linux-x86/2.7.5" name="platform/prebuilts/python/linux-x86/2.7.5" groups="linux,pdk,pdk-cw-fs,pdk-fs" clone-depth="1" remote="aosp" /> -->
   <!-- project path="prebuilts/qemu-kernel" name="platform/prebuilts/qemu-kernel" groups="pdk" clone-depth="1" remote="aosp" /> -->
